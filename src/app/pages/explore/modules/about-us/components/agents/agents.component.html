@@ -1,0 +1,10 @@
+<div class="medium-header-container">
+  <app-top-header [backUrl]="'explore/about'"></app-top-header>
+</div>
+<div class="page-content">
+  <app-info [infoBox]="aboutAgents"></app-info>
+</div>
+<div class="page-content">
+  <app-team (memberClicked)="onAgentClick($event)"
+            [listTitle]="'لیست نمایندگان'" [teamMembers]="agents"></app-team>
+</div>

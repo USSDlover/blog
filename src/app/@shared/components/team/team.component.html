@@ -1,0 +1,9 @@
+<div [dir]="isRtl ? 'rtl' : 'ltr'" class="team-list">
+  <div class="list-title">
+    {{listTitle}}
+  </div>
+  <div class="list-separator"></div>
+  <div *ngFor="let member of teamMembers" class="list-item">
+    <app-member (memberClicked)="memberClicked.emit(member.id)" [isRtl]="isRtl" [member]="member"></app-member>
+  </div>
+</div>

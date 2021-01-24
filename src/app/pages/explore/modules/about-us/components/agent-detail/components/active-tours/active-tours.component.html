@@ -1,0 +1,12 @@
+<div [dir]="isRtl ? 'rtl': 'ltr'" class="list-title">
+  <label>
+    تورهای فعال
+  </label>
+  <div class="info-separator"></div>
+</div>
+<div *ngIf="activeTours" class="active-tours">
+  <div *ngFor="let tour of activeTours" class="active-tour">
+    <app-place-medium-card [backUrl]="'explore/about/agent?id=' + agent.id" [place]="tour">
+    </app-place-medium-card>
+  </div>
+</div>

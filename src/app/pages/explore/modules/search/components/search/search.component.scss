@@ -1,0 +1,7 @@
+.sub-header {
+  height: 62px;
+  // .medium-header-container height is 90 and sub header height is 132 + 20 margin-bottom
+  // so content need to have 152 space from top,
+  // 90 - 152 = 62px
+  width: 100%;
+}

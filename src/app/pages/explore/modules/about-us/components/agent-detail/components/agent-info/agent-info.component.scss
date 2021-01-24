@@ -1,0 +1,68 @@
+.agent-info {
+  width: 90%;
+  height: fit-content;
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+
+  .agent-detail {
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .agent-profile {
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+    }
+
+    .agent-profile-detail {
+      display: flex;
+      flex-direction: column;
+      margin-inline-start: 9.5px;
+
+      .full-name {
+        font-size: 12px;
+        font-weight: bold;
+        color: var(--nakhoda-secondary-3);
+      }
+
+      .agent-location {
+        display: flex;
+        flex-direction: row;
+
+        img {
+          width: 11.25px;
+          height: 13.75px;
+          margin-inline-end: 5px;
+        }
+
+        label {
+          font-size: 12px;
+          font-weight: normal;
+          color: var(--nakhoda-secondary-2);
+        }
+      }
+    }
+
+  }
+
+  .about-agent {
+    margin-top: 20px;
+
+    p {
+      font-size: 12px;
+      font-weight: normal;
+      color: var(--nakhoda-secondary-2);
+    }
+  }
+}

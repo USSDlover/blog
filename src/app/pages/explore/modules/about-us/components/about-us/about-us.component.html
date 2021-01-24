@@ -1,0 +1,12 @@
+<div class="medium-header-container">
+  <app-top-header></app-top-header>
+</div>
+<div class="page-content">
+  <app-info [infoBox]="aboutUs"></app-info>
+</div>
+<div class="page-content">
+  <app-agents-btn (btnClicked)="onAgentBtnClick()"></app-agents-btn>
+</div>
+<div class="page-content">
+  <app-team [listTitle]="'اعضای تیم'" [teamMembers]="members"></app-team>
+</div>

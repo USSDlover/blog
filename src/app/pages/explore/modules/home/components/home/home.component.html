@@ -1,0 +1,9 @@
+<div>
+  <app-home-header
+    (categorySelected)="onCategorySelect($event)"
+    [categories]="homeData.categories">
+  </app-home-header>
+</div>
+<div style="margin-top: 40px;">
+  <app-places-slide [places]="homeData.places"></app-places-slide>
+</div>

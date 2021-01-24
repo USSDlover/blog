@@ -1,0 +1,17 @@
+.categories-container {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.category-container {
+  width: 1680px;
+  //width: 167.5px;
+  height: 80px;
+  //height: 77.5px;
+  flex: 1 0 168px;
+  //flex: 1 0 163px;
+}

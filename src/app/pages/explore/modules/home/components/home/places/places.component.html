@@ -1,0 +1,6 @@
+<div class="slides-container">
+  <div *ngFor="let place of places" class="slide-item">
+    <app-place-medium-card [backUrl]="'explore/home'" [place]="place">
+    </app-place-medium-card>
+  </div>
+</div>

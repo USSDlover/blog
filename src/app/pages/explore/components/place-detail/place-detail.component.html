@@ -1,0 +1,40 @@
+<div class="header-container">
+  <app-top-header [backUrl]="backUrl"></app-top-header>
+</div>
+<div [dir]="isRtl ? 'rtl' : 'ltr'">
+  <div class="place-location-card">
+    <label class="place-title normal-label">{{placeDetail.title}}</label>
+    <div class="place-location">
+      <img alt="!" src="assets/custom-icons/map-pin-dark.svg">
+      <label class="normal-label">{{placeDetail.location.city}}</label>
+    </div>
+  </div>
+  <div class="place-images">
+    <div *ngFor="let placeImg of placeDetail.images" class="image-wrapper">
+      <div [backgroundColour]="'transparent'"
+           [backgroundSize]="'cover'"
+           [backgroundImageUrl]="placeImg"
+           appBackground
+           class="place-image image-container">
+        <div class="image-overlay"></div>
+      </div>
+    </div>
+  </div>
+  <div class="info-card">
+    <label>
+      در مورد این مکان:
+    </label>
+    <p>
+      {{placeDetail.description}}
+    </p>
+  </div>
+  <div class="info-card">
+    <label>
+      آدرس:
+    </label>
+    <p>
+      {{placeDetail.address}}
+    </p>
+  </div>
+</div>
+

@@ -1,0 +1,16 @@
+.slides-container {
+  height: fit-content;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row-reverse;
+
+  overflow-x: scroll;
+}
+
+.slide-item {
+  margin-right: 20px;
+  &:last-child {
+    margin-left: 20px;
+  }
+}

@@ -1,0 +1,22 @@
+.agent-address {
+  display: flex;
+  flex-direction: row;
+
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+
+  background-color: #ffffff;
+  border-radius: 10px;
+
+  padding: 14px 15px;
+
+  p {
+    font-size: 14px;
+    font-weight: normal;
+    color: var(--nakhoda-secondary-2);
+
+    margin-inline-start: 15px;
+  }
+}

@@ -1,0 +1,15 @@
+<div class="medium-header-container">
+  <app-top-header [backUrl]="'explore/search'"></app-top-header>
+</div>
+<div *ngIf="info.category" [dir]="isRtl ? 'rtl' : 'ltr'" class="page-content">
+  <label>
+    {{info.category.title + ' :'}}
+  </label>
+</div>
+<div *ngIf="info.places?.length > 0" [dir]="isRtl ? 'rtl' : 'ltr'" class="page-content">
+  <div *ngFor="let place of info.places"
+       class="place-medium-card-container image-container">
+    <div class="image-overlay"></div>
+    <app-place [backUrl]="backUrl" [place]="place"></app-place>
+  </div>
+</div>

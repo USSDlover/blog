@@ -1,0 +1,10 @@
+<nav class="header">
+  <div class="logo">
+    <img src="assets/images/Logo.png" alt="N">
+  </div>
+  <div (click)="onBackClick()" *ngIf="isThereBackUrl" [backgroundColour]="'transparent'"
+       [backgroundImageUrl]="'assets/custom-icons/toolbar-icons/back.png'"
+       appBackground
+       class="backBtn">
+  </div>
+</nav>

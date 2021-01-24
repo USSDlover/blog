@@ -1,0 +1,81 @@
+.bottom-toolbar {
+  animation: tackle-in 250ms linear;
+
+  background-color: #ffffff;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 0 10px rgb(252, 235, 237);
+
+  padding: 7px 0;
+
+  position: fixed;
+  bottom: 0;
+
+  width: 100%;
+  height: 50px;
+
+  .toolbar-item {
+    animation: get-in 400ms ease-in;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 35px;
+    min-height: 35px;
+
+    margin-right: 64px;
+
+    height: 50%;
+    background-color: #FDECEE;
+
+    border-radius: 5px;
+
+    outline: transparent;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    svg {
+      g {
+        path {
+          stroke: #ef6c79;
+        }
+      }
+    }
+
+    &.active {
+      background-color: #EB1E2F;
+      svg {
+        g {
+          path {
+            stroke: #FDECEE;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes tackle-in {
+  0% {
+    margin-left: -100%;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
+
+@keyframes get-in {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

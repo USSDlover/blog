@@ -1,0 +1,19 @@
+<div (click)="onMemberClick()" [dir]="isRtl ? 'rtl' : 'ltr'" class="member-card">
+  <div [backgroundColour]="'transparent'" [backgroundImageUrl]="member.profile"
+       appBackground class="member-profile">
+  </div>
+  <div *ngIf="member.role.id !== 'agent'" class="member-detail">
+    <label class="member-name">{{member.fullName}}</label>
+    <label class="member-role">{{member.role.title}}</label>
+  </div>
+  <div *ngIf="member.role.id === 'agent'" class="agent-detail">
+    <label class="agent-name">{{member.fullName}}</label>
+    <div class="agent-location">
+      <img alt="!" class="pin-mark" src="assets/custom-icons/map-pin-dark.svg">
+      <label>{{member.detail.location.city}}, {{member.detail.location.state}}</label>
+    </div>
+    <label class="more-detail">
+      اطلاعات بیشتر
+    </label>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="medium-header-container">
+  <app-top-header backUrl="explore/about/agents"></app-top-header>
+</div>
+<div [dir]="isRtl ? 'rtl' : 'ltr'" class="page-content">
+  <app-agent-info [agent]="agentData"></app-agent-info>
+</div>
+<div class="page-content">
+  <app-active-tours [agent]="agentData" [isRtl]="isRtl"></app-active-tours>
+</div>
+<div [dir]="isRtl ? 'rtl' : 'ltr'" class="page-content">
+  <app-phone [agent]="agentData"></app-phone>
+</div>
+<div [dir]="isRtl ? 'rtl' : 'ltr'" class="page-content">
+  <app-address [agent]="agentData"></app-address>
+</div>

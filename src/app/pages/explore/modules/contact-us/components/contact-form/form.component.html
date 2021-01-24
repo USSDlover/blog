@@ -1,0 +1,14 @@
+<div class="form-wrapper">
+    <div class="title">
+        تماس باما
+    </div>
+    <div class="form">
+        <form action="" [formGroup]="comments" (submit)='showData()' >
+            <input type="text" formControlName="user_name" placeholder="نام و نام خانوادگی">
+            <input type="text" formControlName="user_email" placeholder="ایمیل شما">
+            <input type="text" formControlName="user_phone" placeholder="شماره تماس">
+            <textarea name="" id="" cols="30" rows="10" formControlName="user_comment" placeholder="لطفا پیشنهاد خود را بنویسید..."></textarea>
+            <button type="submit" [class]="{'valid' : comments.valid }" #btnSubmit>ارسال</button>
+        </form>
+    </div>
+</div>

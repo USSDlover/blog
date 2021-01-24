@@ -1,0 +1,58 @@
+.place-card-container {
+  width: 270px;
+  height: 280px;
+
+  border-radius: 10px;
+
+  position: relative;
+}
+
+.image-overlay {
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(203, 19, 35, 0.04);
+
+  position: absolute;
+
+  overflow: hidden;
+}
+
+.place-detail {
+  width: 100%;
+  height: 69px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  text-align: end;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  position: absolute;
+  bottom: 0;
+
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.place-location {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+
+  img {
+    width: 11.25px;
+    height: 13.75px;
+
+    margin-left: 5px;
+  }
+  label {
+    font-size: 12px;
+  }
+}
+
+.place-title, .place-location {
+  margin-right: 10px;
+}

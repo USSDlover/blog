@@ -1,0 +1,12 @@
+<div [dir]="isRtl ? 'rtl' : 'ltr'" class="search-bar">
+  <form (ngSubmit)="onSubmit()" [formGroup]="searchForm">
+    <input autocomplete="none"
+           formControlName="terms"
+           placeholder="به دنبال چه میگردید؟"
+           type="search">
+  </form>
+  <div [backgroundColour]="'transparent'" appBackground
+       backgroundImageUrl="assets/custom-icons/search.svg"
+       class="search-icon">
+  </div>
+</div>

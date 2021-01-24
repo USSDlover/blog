@@ -1,0 +1,76 @@
+.member-card {
+  background-color: #ffffff;
+  width: 100%;
+  height: fit-content;
+
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  border-radius: 10px 50% 50% 10px;
+
+  .member-profile {
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50%;
+  }
+
+  .member-detail {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+
+    height: 100%;
+
+    .member-name {
+      font-size: 12px;
+      font-weight: bold;
+      color: var(--nakhoda-secondary-3);
+    }
+
+    .member-role {
+      font-weight: normal;
+      font-size: 12px;
+      color: var(--nakhoda-secondary-2);
+    }
+  }
+
+  .agent-detail {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+
+    height: 100%;
+
+    .agent-name {
+      font-size: 12px;
+      font-weight: bold;
+      color: var(--nakhoda-secondary-3);
+    }
+
+    .agent-location {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .pin-mark {
+        width: 11.25px;
+        height: 13.75px;
+        margin-left: 5px;
+      }
+
+      label {
+        font-weight: normal;
+        font-size: 12px;
+        color: var(--nakhoda-secondary-2);
+      }
+    }
+
+    .more-detail {
+      font-size: 12px;
+      font-weight: normal;
+      color: var(--nakhoda-active);
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<div class="home-header">
+  <div class="header-title">
+    <label class="normal-label">
+      این جاذبه ها را به شما پیشنهاد می دهیم
+    </label>
+  </div>
+  <div class="categories">
+    <div *ngFor="let category of categories.slice(0, 2)"
+         (click)="categorySelected.emit(category._id)"
+         appBackground
+         [backgroundSize]="'cover'"
+         [backgroundImageUrl]="category.image_url"
+         class="category image-container">
+      <div class="image-overlay"></div>
+      <label class="bold-label">{{category.title}}</label>
+    </div>
+  </div>
+</div>

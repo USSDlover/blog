@@ -1,0 +1,30 @@
+.our-agents {
+  width: 90%;
+  max-width: 350px;
+  height: 80px;
+
+  margin: 20px auto 0;
+
+  background-image: url("/assets/images/pepole/agents.png");
+  -moz-background-image: url("/assets/images/pepole/agents.png");
+  -o-background-image: url("/assets/images/pepole/agents.png");
+  -webkit-background-image: url("/assets/images/pepole/agents.png");
+
+  background-color: var(--nakhoda-primary-btn);
+
+  color: var(--nakhoda-font-reddish);
+
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  label {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}

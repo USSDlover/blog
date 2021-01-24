@@ -1,0 +1,16 @@
+<div class="agent-info">
+  <div class="agent-detail">
+    <div [backgroundColour]="'transparent'" [backgroundImageUrl]="agent.profile" appBackground class="agent-profile">
+    </div>
+    <div class="agent-profile-detail">
+      <label class="full-name">{{agent.fullName}}</label>
+      <div class="agent-location">
+        <img alt="!" src="assets/custom-icons/map-pin-dark.svg">
+        <label>{{agent.detail.location.city}}, {{agent.detail.location.state}}</label>
+      </div>
+    </div>
+  </div>
+  <div class="about-agent">
+    <p class="description">{{agent.detail.about}}</p>
+  </div>
+</div>

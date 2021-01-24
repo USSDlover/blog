@@ -1,0 +1,14 @@
+<div (click)="onPlaceClick()"
+     [backgroundImageUrl]="place.image_url"
+     [backgroundSize]="'cover'"
+     appBackground
+     class="place-card-container">
+  <div class="image-overlay"></div>
+  <div class="place-detail">
+    <label class="place-title normal-label">{{place.title}}</label>
+    <div class="place-location">
+      <img alt="!" src="../../../../assets/custom-icons/map-pin-white.svg">
+      <label class="normal-label">{{place.location.city}}</label>
+    </div>
+  </div>
+</div>
