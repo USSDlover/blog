@@ -6,14 +6,14 @@
     <label class="place-title normal-label">{{placeDetail.title}}</label>
     <div class="place-location">
       <img alt="!" src="assets/custom-icons/map-pin-dark.svg">
-      <label class="normal-label">{{placeDetail.location.city}}</label>
+      <label class="normal-label">{{placeDetail.location.state + ', ' + placeDetail.location.city}}</label>
     </div>
   </div>
   <div class="place-images">
     <div *ngFor="let placeImg of placeDetail.images" class="image-wrapper">
       <div [backgroundColour]="'transparent'"
            [backgroundSize]="'cover'"
-           [backgroundImageUrl]="placeImg"
+           [backgroundImageUrl]="placeImg.url"
            appBackground
            class="place-image image-container">
         <div class="image-overlay"></div>

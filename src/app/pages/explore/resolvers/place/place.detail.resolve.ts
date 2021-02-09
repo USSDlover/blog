@@ -11,8 +11,7 @@ export class PlaceDetailResolve implements Resolve<IPlaceDetail> {
   ) {
   }
 
-  async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):
-    Promise<IPlaceDetail> {
+  async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<IPlaceDetail> {
     const placeId = route.queryParams.id;
     let place: IPlaceDetail;
     if (placeId) {
