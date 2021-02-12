@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ScrollingModule} from '@angular/cdk/scrolling';
-import {BackgroundImageDirective} from './directives';
+import {BackgroundImageDirective, ImageFallbackDirective} from './directives';
 import {
   InfoComponent,
   MemberComponent,
@@ -11,7 +11,8 @@ import {
 } from './components';
 
 const Directives = [
-  BackgroundImageDirective
+  BackgroundImageDirective,
+  ImageFallbackDirective
 ];
 
 const Components = [

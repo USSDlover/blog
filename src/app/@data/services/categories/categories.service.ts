@@ -17,7 +17,7 @@ export class CategoriesService {
     return this.api.makeGetApiCall<ICategory[]>('category')
       .pipe(map(categories => {
         return categories.map(cat =>
-          this.imgUrl.parseImageUrl<ICategory>(cat, 'image_url'))
+          this.imgUrl.parseImageUrl<ICategory>(cat, 'imageUrl'))
           .slice(0, 2);
       }));
   }
@@ -26,7 +26,7 @@ export class CategoriesService {
     return this.api.makeGetApiCall<ICategory[]>('category')
       .pipe(map(categories => {
         return categories.map(cat =>
-          this.imgUrl.parseImageUrl<ICategory>(cat, 'image_url'));
+          this.imgUrl.parseImageUrl<ICategory>(cat, 'imageUrl'));
       }));
   }
 
@@ -35,7 +35,7 @@ export class CategoriesService {
 
     return this.api.makeGetApiCall<ICategory>('category/detail', params)
       .pipe(map(cat => {
-        return this.imgUrl.parseImageUrl<ICategory>(cat, 'image_url');
+        return this.imgUrl.parseImageUrl<ICategory>(cat, 'imageUrl');
       }));
   }
 }

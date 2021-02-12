@@ -1,7 +1,7 @@
 export interface IPlace {
   _id: string;
   title: string;
-  image_url: string;
+  imageUrl: string;
   catId: string;
   location: {
     city: string;
@@ -12,5 +12,6 @@ export interface IPlace {
 export interface IPlaceDetail extends IPlace {
   description: string;
   address: string;
-  images: Array<{id: string; url: string}>;
+  images: Array<string>;
+  imageModified: number;
 }

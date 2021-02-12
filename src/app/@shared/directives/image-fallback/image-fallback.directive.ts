@@ -1,32 +1,33 @@
-import {Directive, ElementRef, EventEmitter, Input, OnDestroy, OnInit} from '@angular/core';
+import {Directive, ElementRef, EventEmitter, HostBinding, Input, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 
 @Directive({
-    selector: 'img[default]',
-    host: {'(error)': 'updateUrl()'}
+  selector: '[appDefault]'
 })
 export class ImageFallbackDirective implements OnInit, OnDestroy {
-    @Input() default: string;
-    @Input() gotError: EventEmitter<void> = new EventEmitter<void>();
+  @HostBinding('error') onError = this.updateUrl();
 
-    private _errorSub: Subscription;
+  @Input() default: string;
+  @Input() gotError: EventEmitter<void> = new EventEmitter<void>();
 
-    constructor(private el: ElementRef) {
+  private _errorSub: Subscription;
+
+  constructor(private el: ElementRef) {
+  }
+
+  ngOnInit(): void {
+    this._errorSub = this.gotError.subscribe(() => {
+      this.updateUrl();
+    });
+  }
+
+  updateUrl(): void {
+    this.el.nativeElement.src = this.default;
+  }
+
+  ngOnDestroy(): void {
+    if (this._errorSub) {
+      this._errorSub.unsubscribe();
     }
-
-    ngOnInit() {
-        this._errorSub = this.gotError.subscribe(() => {
-            this.updateUrl();
-        });
-    }
-
-    updateUrl() {
-        this.el.nativeElement.src = this.default;
-    }
-
-    ngOnDestroy() {
-        if (this._errorSub) {
-            this._errorSub.unsubscribe();
-        }
-    }
+  }
 }

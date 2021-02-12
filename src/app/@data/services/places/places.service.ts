@@ -9,17 +9,13 @@ const Places: IPlaceDetail[] = [
   {
     _id: 'place_1',
     title: 'برج آزادی',
-    image_url: 'assets/images/places/azadi.png',
+    imageUrl: 'assets/images/places/azadi.png',
     images: [
-      {id: '1', url: 'assets/images/places/azadi.png'},
-      {id: '1', url: 'assets/images/places/azadi.png'},
-      {id: '1', url: 'assets/images/places/azadi.png'},
+      'assets/images/places/azadi.png',
+      'assets/images/places/azadi.png',
+      'assets/images/places/azadi.png',
     ],
-    city: 'تهران',
-    state: 'تهران',
-    catIds: [
-      '1'
-    ],
+    imageModified: new Date().getTime(),
     location: {
       city: 'city',
       state: 'state'
@@ -53,7 +49,7 @@ export class PlacesService {
     return this.api.makeGetApiCall<IPlace[]>('article')
       .pipe(
         map(places => places.map(
-          place => this.imgUrl.parseImageUrl<IPlace>(place, 'image_url'))));
+          place => this.imgUrl.parseImageUrl<IPlace>(place, 'imageUrl'))));
   }
 
   getPlaceById(placeId: string): Observable<IPlaceDetail> {
@@ -61,11 +57,8 @@ export class PlacesService {
 
     return this.api.makeGetApiCall<IPlaceDetail>('article/detail', params)
       .pipe(map(place => {
-        place.images = place.images.map(imgItm => {
-          imgItm.url = this.imgUrl.addApiToImageUrl(imgItm.url);
-          return imgItm;
-        });
-        return this.imgUrl.parseImageUrl<IPlaceDetail>(place, 'image_url');
+        place.images = place.images.map(imgItm => this.imgUrl.addApiToImageUrl(imgItm));
+        return this.imgUrl.parseImageUrl<IPlaceDetail>(place, 'imageUrl');
       }));
   }
 
@@ -86,7 +79,7 @@ export class PlacesService {
 
     return this.api.makeGetApiCall<IPlace[]>('article/filter', params)
       .pipe(map((places) => {
-        places.forEach(place => this.imgUrl.parseImageUrl<IPlace>(place, 'image_url'));
+        places.forEach(place => this.imgUrl.parseImageUrl<IPlace>(place, 'imageUrl'));
         return places;
       }));
   }

@@ -13,7 +13,7 @@
     <div *ngFor="let placeImg of placeDetail.images" class="image-wrapper">
       <div [backgroundColour]="'transparent'"
            [backgroundSize]="'cover'"
-           [backgroundImageUrl]="placeImg.url"
+           [backgroundImageUrl]="placeImg"
            appBackground
            class="place-image image-container">
         <div class="image-overlay"></div>
