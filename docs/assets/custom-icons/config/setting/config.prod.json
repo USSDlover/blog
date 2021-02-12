@@ -1,9 +1,0 @@
-{
-  "env": {
-    "name": "PROD"
-  },
-  "apiServer": {
-    "base": "https://f18f641655b9.ngrok.io",
-    "meta": "/api/v1"
-  }
-}

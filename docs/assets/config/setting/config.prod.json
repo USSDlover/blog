@@ -3,7 +3,6 @@
     "name": "PROD"
   },
   "apiServer": {
-    "base": "https://95573d4f14ad.ngrok.io",
-    "meta": "/api/v1"
+    "metaData": "/api/v1"
   }
 }
