@@ -48,17 +48,28 @@ export class PlacesService {
   getTop5Places(): Observable<IPlace[]> {
     return this.api.makeGetApiCall<IPlace[]>('article')
       .pipe(
-        map(places => places.map(
-          place => this.imgUrl.parseImageUrl<IPlace>(place, 'imageUrl'))));
+        map((callResponse) => {
+          if (callResponse.status) {
+            return callResponse.response.map(
+              place => this.imgUrl.parseImageUrl<IPlace>(place, 'imageUrl'));
+          } else {
+            return Places;
+          }
+        }
+      ));
   }
 
   getPlaceById(placeId: string): Observable<IPlaceDetail> {
     const params = new HttpParams().append('id', placeId);
 
     return this.api.makeGetApiCall<IPlaceDetail>('article/detail', params)
-      .pipe(map(place => {
-        place.images = place.images.map(imgItm => this.imgUrl.addApiToImageUrl(imgItm));
-        return this.imgUrl.parseImageUrl<IPlaceDetail>(place, 'imageUrl');
+      .pipe(map((callResponse) => {
+        if (callResponse.status) {
+          callResponse.response.images = callResponse.response.images.map(imgItm => this.imgUrl.addApiToImageUrl(imgItm));
+          return this.imgUrl.parseImageUrl<IPlaceDetail>(callResponse.response, 'imageUrl');
+        } else {
+          return Places[0];
+        }
       }));
   }
 
@@ -78,9 +89,13 @@ export class PlacesService {
     const params = new HttpParams().append('catId', catId);
 
     return this.api.makeGetApiCall<IPlace[]>('article/filter', params)
-      .pipe(map((places) => {
-        places.forEach(place => this.imgUrl.parseImageUrl<IPlace>(place, 'imageUrl'));
-        return places;
+      .pipe(map((callResponse) => {
+        if (callResponse.status) {
+          callResponse.response.forEach(place => this.imgUrl.parseImageUrl<IPlace>(place, 'imageUrl'));
+          return callResponse.response;
+        } else {
+          return Places;
+        }
       }));
   }
 }

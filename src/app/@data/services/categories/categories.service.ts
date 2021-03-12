@@ -15,18 +15,26 @@ export class CategoriesService {
 
   getTop2Categories(): Observable<ICategory[]> {
     return this.api.makeGetApiCall<ICategory[]>('category')
-      .pipe(map(categories => {
-        return categories.map(cat =>
-          this.imgUrl.parseImageUrl<ICategory>(cat, 'imageUrl'))
-          .slice(0, 2);
+      .pipe(map((callResponse) => {
+        if (callResponse.status) {
+          return callResponse.response.map(cat =>
+            this.imgUrl.parseImageUrl<ICategory>(cat, 'imageUrl'))
+            .slice(0, 2);
+        } else {
+          return [];
+        }
       }));
   }
 
   getAllCategories(): Observable<ICategory[]> {
     return this.api.makeGetApiCall<ICategory[]>('category')
-      .pipe(map(categories => {
-        return categories.map(cat =>
-          this.imgUrl.parseImageUrl<ICategory>(cat, 'imageUrl'));
+      .pipe(map((callResponse) => {
+        if (callResponse.status) {
+          return callResponse.response.map(cat =>
+            this.imgUrl.parseImageUrl<ICategory>(cat, 'imageUrl'));
+        } else {
+          return [];
+        }
       }));
   }
 
@@ -34,8 +42,10 @@ export class CategoriesService {
     const params = new HttpParams().append('id', catId);
 
     return this.api.makeGetApiCall<ICategory>('category/detail', params)
-      .pipe(map(cat => {
-        return this.imgUrl.parseImageUrl<ICategory>(cat, 'imageUrl');
+      .pipe(map((callResponse) => {
+        if (callResponse.status) {
+          return this.imgUrl.parseImageUrl<ICategory>(callResponse.response, 'imageUrl');
+        }
       }));
   }
 }
