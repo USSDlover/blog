@@ -1,8 +1,0 @@
-{
-  "env": {
-    "name": "PROD"
-  },
-  "apiServer": {
-    "metaData": "/api/v1"
-  }
-}
