@@ -1,6 +1,6 @@
 {
   "name": "blog",
-  "version": "0.10.94",
+  "version": "0.10.96",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

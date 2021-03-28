@@ -4,6 +4,6 @@
   },
   "apiServer": {
     "base": "https://tour-api.nakhodatour.ir",
-    "metaData": "/api/v1"
+    "meta": "/api/v1"
   }
 }
