@@ -1,123 +1,140 @@
 @keyframes loadingSubmit {
-    0% {background-position: 0 0;}
-    50% {background-position: 100% 0;}
-    100% {background-position: 0% 0;}
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 
-
 div.form-wrapper {
-    div.title {
-        color: #eb1e2f;
-        text-align: center;
-        font-size: 2em;
-        padding: 20px;
-    }
-    div.form {
-        padding: 20px;
-        form {
-            input {
-                display: block;
-                width: 80%;
-                margin: 20px 10%;
-                border: none;
-                padding: 10px;
-                border-radius: 5px;
-                direction: rtl;
-                text-align: right;
-                box-shadow: 5px 5px 15px rgba(153, 153, 153, 0.21);
-                transition: 0.25s ease;
-            }
-            textarea {
-                direction: rtl;
-                text-align: right;
-                display: block;
-                width: 80%;
-                padding: 10px;
-                margin: 20px 10%;
-                height: 100px;
-                border-radius: 5px;
-                border: none;
-                transition: 0.25s ease;
-                resize: none;
-                box-shadow: 5px 5px 15px rgba(153, 153, 153, 0.21);
-            }
-            input:focus , textarea:focus {
-                outline: none;
-                margin: 30px 10%;
-            }
-            button[type=submit] {
-                padding: 10px 15px;
-                background-image: linear-gradient(to right , #009e25 50% , #1ce049 50%);
-                border: none;
-                width: 40%;
-                color: white;
-                border-radius: 5px;
-                box-shadow: 0px 0px 15px #4bff7555;
-                background-size: 200% , 200%;
-                background-position: 0 0;
-                margin: 20px 30%;
-                overflow: hidden;
-                position: relative;
-                opacity: 0.2;
-                transform: scale(0.9);
-                transition: 0.25s ease;
-                &.valid {
-                    opacity: 1;
-                    transform: scale(1);
-                }
-                &:active {
-                    transform: scale(1.1);
-                }
-                &.waiting {
-                    animation-name: loadingSubmit;
-                    animation-duration: 2s;
-                    animation-timing-function: ease;
-                    animation-iteration-count: infinite;
-                }
-                &.success {
-                    &::before {
-                        left: 0;
-                    }
-                }
-                &.error {
-                    &::after {
-                        left: 0;
-                    }
-                }
-                &::before {
-                    content: 'ارسال شد !';
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    direction: rtl;
-                    text-align: center;
-                    top: 0;
-                    box-sizing: border-box;
-                    left: 100%;
-                    border-radius: 5px;
-                    padding: 10px 15px;
-                    background-color: #1ce049;
-                    transition: 0.25s ease;
-                }
-                &:after {
-                    content: 'خطا';
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    direction: rtl;
-                    text-align: center;
-                    top: 0;
-                    box-sizing: border-box;
-                    left: 100%;
-                    border-radius: 5px;
-                    padding: 10px 15px;
-                    background-color: red;
-                    transition: 0.25s ease;
-                }
-                &:focus {
-                    outline: none;
-                }
-            }
+  div.title {
+    color: var(--nakhoda-active);
+    text-align: center;
+    font-size: 2em;
+    padding: 20px;
+  }
+
+  div.form {
+    padding: 20px;
+
+    form {
+      input {
+        display: block;
+        width: 80%;
+        margin: 20px 10%;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        direction: rtl;
+        text-align: right;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+        transition: 0.25s ease;
+      }
+
+      textarea {
+        direction: rtl;
+        text-align: right;
+        display: block;
+        width: 80%;
+        padding: 10px;
+        margin: 20px 10%;
+        height: 100px;
+        border-radius: 5px;
+        border: none;
+        transition: 0.25s ease;
+        resize: none;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      input:focus, textarea:focus {
+        outline: rgb(3, 95, 238);
+      }
+
+      button[type=submit] {
+        padding: 10px 15px;
+        background-image: linear-gradient(to right, #009e25 50%, #1ce049 50%);
+        border: none;
+        width: 40%;
+        color: white;
+        border-radius: 5px;
+        box-shadow: 0 0 15px #4bff7555;
+        background-size: 200%, 200%;
+        background-position: 0 0;
+        margin: 20px 30%;
+        overflow: hidden;
+        position: relative;
+        opacity: 0.2;
+        transform: scale(0.9);
+        transition: 0.25s ease;
+
+        &.valid {
+          opacity: 1;
+          transform: scale(1);
         }
+
+        &:active {
+          transform: scale(1.1);
+        }
+
+        &.waiting {
+          animation-name: loadingSubmit;
+          animation-duration: 2s;
+          animation-timing-function: ease;
+          animation-iteration-count: infinite;
+        }
+
+        &.success {
+          &::before {
+            left: 0;
+          }
+        }
+
+        &.error {
+          &::after {
+            left: 0;
+          }
+        }
+
+        &::before {
+          content: 'ارسال شد !';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          direction: rtl;
+          text-align: center;
+          top: 0;
+          box-sizing: border-box;
+          left: 100%;
+          border-radius: 5px;
+          padding: 10px 15px;
+          background-color: #1ce049;
+          transition: 0.25s ease;
+        }
+
+        &:after {
+          content: 'خطا';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          direction: rtl;
+          text-align: center;
+          top: 0;
+          box-sizing: border-box;
+          left: 100%;
+          border-radius: 5px;
+          padding: 10px 15px;
+          background-color: red;
+          transition: 0.25s ease;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
     }
+  }
 }
