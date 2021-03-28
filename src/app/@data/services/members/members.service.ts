@@ -6,28 +6,37 @@ const MockMembers: IMember[] = [
   {
     id: 'user_01',
     profile: 'assets/images/pepole/hossein.png',
-    fullName: 'حسین علیزاده',
+    fullName: 'طاهره پاسلار',
     role: {
-      id: 'manager',
-      title: 'مدیر اجرایی'
+      id: 'ceo',
+      title: 'مدیرعامل'
     }
   },
   {
     id: 'user_02',
     profile: 'assets/images/pepole/mamad.png',
-    fullName: 'محمد بحر',
+    fullName: 'محمد پاسلار',
     role: {
-      id: 'boss',
-      title: 'مدیر عامل'
+      id: 'cto',
+      title: 'مدیرفنی بند ب'
     }
   },
   {
     id: 'user_03',
     profile: 'assets/images/pepole/heidar.png',
-    fullName: 'حیدر صفری',
+    fullName: 'صدیقه حق گو',
     role: {
-      id: 'resource',
-      title: 'منابع انسانی'
+      id: 'reseller',
+      title: 'كارمند فروش'
+    }
+  },
+  {
+    id: 'user_04',
+    profile: 'assets/images/pepole/heidar.png',
+    fullName: 'افسانه شیردل',
+    role: {
+      id: 'cmm',
+      title: 'مدیر صفحه اینستاگرام'
     }
   }
 ];
