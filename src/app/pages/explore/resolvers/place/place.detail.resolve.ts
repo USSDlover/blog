@@ -13,6 +13,7 @@ export class PlaceDetailResolve implements Resolve<IPlaceDetail> {
 
   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<IPlaceDetail> {
     const placeId = route.queryParams.id;
+    console.log(placeId);
     let place: IPlaceDetail;
     if (placeId) {
       place = await this.dataFacade.getPlaceById(placeId).toPromise();

@@ -24,7 +24,7 @@ export class ResultComponent implements OnInit {
       if (this.info.terms) {
         this.backUrl = 'explore/search/result?terms=' + this.info.terms;
       } else if (this.info.category) {
-        this.backUrl = 'explore/search/result?catId=' + this.info.category._id;
+        this.backUrl = 'explore/search/result?catId=' + this.info.category.id;
       }
     }
   }

@@ -16,8 +16,8 @@ export class CategoriesService {
   getTop2Categories(): Observable<ICategory[]> {
     return this.api.makeGetApiCall<ICategory[]>('category')
       .pipe(map((callResponse) => {
-        if (callResponse.status) {
-          return callResponse.response.map(cat =>
+        if (callResponse) {
+          return callResponse.map(cat =>
             this.imgUrl.parseImageUrl<ICategory>(cat, 'imageUrl'))
             .slice(0, 2);
         } else {
@@ -29,8 +29,8 @@ export class CategoriesService {
   getAllCategories(): Observable<ICategory[]> {
     return this.api.makeGetApiCall<ICategory[]>('category')
       .pipe(map((callResponse) => {
-        if (callResponse.status) {
-          return callResponse.response.map(cat =>
+        if (callResponse) {
+          return callResponse.map(cat =>
             this.imgUrl.parseImageUrl<ICategory>(cat, 'imageUrl'));
         } else {
           return [];
@@ -43,8 +43,8 @@ export class CategoriesService {
 
     return this.api.makeGetApiCall<ICategory>('category/detail', params)
       .pipe(map((callResponse) => {
-        if (callResponse.status) {
-          return this.imgUrl.parseImageUrl<ICategory>(callResponse.response, 'imageUrl');
+        if (callResponse) {
+          return this.imgUrl.parseImageUrl<ICategory>(callResponse, 'imageUrl');
         }
       }));
   }

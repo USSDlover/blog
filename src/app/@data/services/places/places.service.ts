@@ -7,7 +7,7 @@ import {HttpParams} from '@angular/common/http';
 
 const Places: IPlaceDetail[] = [
   {
-    _id: 'place_1',
+    id: 'place_1',
     title: 'برج آزادی',
     imageUrl: 'assets/images/places/azadi.png',
     images: [
@@ -49,9 +49,13 @@ export class PlacesService {
     return this.api.makeGetApiCall<IPlace[]>('article')
       .pipe(
         map((callResponse) => {
-          if (callResponse.status) {
-            return callResponse.response.map(
-              place => this.imgUrl.parseImageUrl<IPlace>(place, 'imageUrl'));
+          if (callResponse) {
+            return callResponse.map(
+              place => {
+                // @ts-ignore
+                place.location = JSON.parse(place.location);
+                return this.imgUrl.parseImageUrl<IPlace>(place, 'imageUrl');
+              });
           } else {
             return Places;
           }
@@ -64,9 +68,11 @@ export class PlacesService {
 
     return this.api.makeGetApiCall<IPlaceDetail>('article/detail', params)
       .pipe(map((callResponse) => {
-        if (callResponse.status) {
-          callResponse.response.images = callResponse.response.images.map(imgItm => this.imgUrl.addApiToImageUrl(imgItm));
-          return this.imgUrl.parseImageUrl<IPlaceDetail>(callResponse.response, 'imageUrl');
+        if (callResponse) {
+          // @ts-ignore
+          callResponse.location = JSON.parse(callResponse.location);
+          callResponse.images = callResponse.images.map(imgItm => this.imgUrl.addApiToImageUrl(imgItm));
+          return this.imgUrl.parseImageUrl<IPlaceDetail>(callResponse, 'imageUrl');
         } else {
           return Places[0];
         }
@@ -74,6 +80,7 @@ export class PlacesService {
   }
 
   searchForPlace(terms: string): Observable<IPlace[]> {
+    // TODO: Get it from API
     const regExp = new RegExp(terms, 'i');
 
     const foundPlaces: IPlace[] = Places.filter(place => {
@@ -90,9 +97,13 @@ export class PlacesService {
 
     return this.api.makeGetApiCall<IPlace[]>('article/filter', params)
       .pipe(map((callResponse) => {
-        if (callResponse.status) {
-          callResponse.response.forEach(place => this.imgUrl.parseImageUrl<IPlace>(place, 'imageUrl'));
-          return callResponse.response;
+        if (callResponse) {
+          callResponse.forEach(place => {
+            // @ts-ignore
+            place.location = JSON.parse(place.location);
+            return this.imgUrl.parseImageUrl<IPlace>(place, 'imageUrl');
+          });
+          return callResponse;
         } else {
           return Places;
         }

@@ -1,7 +1,7 @@
-<div (click)="onCategoryClick()" [backgroundColour]="'transparent'" [backgroundImageUrl]="category.imageUrl"
-     appBackground
+<div (click)="onCategoryClick()"
      class="category image-container">
   <div class="image-overlay"></div>
+  <img [src]="category.imageUrl" alt="Category Image">
   <label>
     {{category.title}}
   </label>

@@ -20,7 +20,7 @@ export class PlaceComponent implements OnInit {
   onPlaceClick(): void {
     this.router.navigate(['explore/place'], {
       queryParams: {
-        id: this.place._id
+        id: this.place.id
       },
       state: {
         back_url: this.backUrl

@@ -3,7 +3,7 @@
     "name": "DEV"
   },
   "apiServer": {
-    "base": "http://localhost:3000",
+    "base": "https://tour-api.nakhodatour.ir",
     "meta": "/api/v1"
   }
 }

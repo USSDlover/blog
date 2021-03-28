@@ -3,7 +3,6 @@ import {AppConfig} from '../../config/app.config';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {catchError} from 'rxjs/operators';
-import {IApiCall} from '@core/interfaces';
 
 @Injectable()
 export class ApiService {
@@ -17,7 +16,7 @@ export class ApiService {
     return of({status: false, message: err.message});
   }
 
-  makeGetApiCall<T>(endPoint: string, queryParams?: HttpParams): Observable<IApiCall<T>> {
+  makeGetApiCall<T>(endPoint: string, queryParams?: HttpParams): Observable<T> {
     return this.http
       .get<T>(`${this.apiServer}/${endPoint}`, {params: queryParams})
       .pipe(catchError((err => ApiService.handleError(err))));

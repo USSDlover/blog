@@ -1,9 +1,7 @@
-<div (click)="onPlaceClick()" [backgroundColour]="'transparent'"
-     [backgroundImageUrl]="place.imageUrl"
-     [backgroundSize]="'cover'"
-     appBackground
+<div (click)="onPlaceClick()"
      class="place-medium-card">
   <label>{{place.title}}</label>
+  <img [src]="place.imageUrl" alt="Place Image">
   <div class="place-location">
     <img alt="!" src="assets/custom-icons/map-pin-white.svg">
     <label>{{place.location.state}}, {{place.location.city}}</label>

@@ -24,7 +24,7 @@ export class PlaceMediumCardComponent implements OnInit {
       ['explore/place'],
       {
         queryParams: {
-          id: this.place._id
+          id: this.place.id
         },
         state: {
           back_url: this.backUrl

@@ -1,5 +1,5 @@
 export interface IPlace {
-  _id: string;
+  id: string;
   title: string;
   imageUrl: string;
   catId: string;

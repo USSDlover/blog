@@ -17,7 +17,7 @@ export class CategoryComponent implements OnInit {
   }
 
   onCategoryClick(): void {
-    this.router.navigateByUrl(`explore/search/result?catId=${this.category._id}`);
+    this.router.navigateByUrl(`explore/search/result?catId=${this.category.id}`);
   }
 
 }
