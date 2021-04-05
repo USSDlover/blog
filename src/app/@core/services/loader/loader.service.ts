@@ -3,7 +3,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable()
 export class LoaderService {
-  private _loading = false;
+  private _loading = true;
   private loading$ = new BehaviorSubject(this._loading);
 
   getLoading(): Observable<boolean> {

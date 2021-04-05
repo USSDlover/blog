@@ -2,18 +2,20 @@ import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@ang
 import {IPlaceDetail} from '@data/interfaces';
 import {Injectable} from '@angular/core';
 import {DataFacade} from '@data/data.facade';
+import {LoaderService} from '@core/services';
 
 @Injectable()
 export class PlaceDetailResolve implements Resolve<IPlaceDetail> {
   constructor(
     private dataFacade: DataFacade,
-    private router: Router
+    private router: Router,
+    private loader: LoaderService
   ) {
+    loader.setLoading(true);
   }
 
   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<IPlaceDetail> {
     const placeId = route.queryParams.id;
-    console.log(placeId);
     let place: IPlaceDetail;
     if (placeId) {
       place = await this.dataFacade.getPlaceById(placeId).toPromise();

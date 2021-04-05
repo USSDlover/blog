@@ -15,11 +15,9 @@ export class HomeResolve implements Resolve<any> {
 
   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<any> {
     const places: IPlace[] = await this.dataFacade.getTop5Places()
-      .toPromise()
-      .finally(() => this.loader.setLoading(false));
+      .toPromise();
     const categories: ICategory[] = await this.dataFacade.getTop2Categories()
-      .toPromise()
-      .finally(() => this.loader.setLoading(false));
+      .toPromise();
 
     return {
       places,

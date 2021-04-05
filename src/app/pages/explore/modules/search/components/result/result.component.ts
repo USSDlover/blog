@@ -1,13 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {ICategory, IPlace} from '../../../../../../@data/interfaces';
+import {AfterContentInit, Component, OnInit} from '@angular/core';
+import {ICategory, IPlace} from '@data/interfaces';
 import {ActivatedRoute} from '@angular/router';
+import {LoaderService} from '@core/services';
 
 @Component({
   selector: 'app-result',
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.scss']
 })
-export class ResultComponent implements OnInit {
+export class ResultComponent implements OnInit, AfterContentInit {
   isRtl = true;
   info: {
     places: IPlace[];
@@ -17,7 +18,8 @@ export class ResultComponent implements OnInit {
   backUrl: string;
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private loader: LoaderService
   ) {
     if (this.route.snapshot.data.info) {
       this.info = this.route.snapshot.data.info;
@@ -30,6 +32,10 @@ export class ResultComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  ngAfterContentInit(): void {
+    this.loader.setLoading(false);
   }
 
 }

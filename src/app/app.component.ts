@@ -26,6 +26,12 @@ export class AppComponent implements AfterContentInit, OnDestroy {
 
   ngAfterContentInit(): void {
     AppComponent.removePreLoader();
+    if (!this.loaderSub) {
+      this.subscribeToLoaderChange();
+    }
+  }
+
+  private subscribeToLoaderChange(): void {
     this.loaderSub = this.loader
       .getLoading()
       .subscribe(state => this.loading = state);
