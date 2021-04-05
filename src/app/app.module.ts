@@ -3,12 +3,13 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {environment} from '../environments/environment';
 import {CoreModule} from '@core/core.module';
+import {InAppLoaderComponent} from '@shared/components';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    InAppLoaderComponent
   ],
   imports: [
     BrowserModule,

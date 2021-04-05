@@ -3,7 +3,7 @@ import {IAppConfig} from './config/app.config.model';
 import {APP_INITIALIZER, ModuleWithProviders, NgModule, Optional, SkipSelf} from '@angular/core';
 import {throwIfAlreadyLoaded} from './import.guard';
 import {HttpClientModule} from '@angular/common/http';
-import {ApiService, ImgUrlParserService} from './services';
+import {ApiService, ImgUrlParserService, LoaderService} from './services';
 
 export function initializeApp(appConfig: AppConfig): () => Promise<IAppConfig> {
   return () => appConfig.load();
@@ -11,7 +11,8 @@ export function initializeApp(appConfig: AppConfig): () => Promise<IAppConfig> {
 
 const Providers = [
   ApiService,
-  ImgUrlParserService
+  ImgUrlParserService,
+  LoaderService
 ];
 
 @NgModule({
