@@ -15,7 +15,7 @@ export class AppConfig {
     return new Promise<IAppConfig>((resolve, reject) => {
       this.http.get(jsonFile).toPromise().then((response: IAppConfig) => {
         AppConfig.settings = (response as IAppConfig);
-        resolve();
+        resolve(AppConfig.settings);
       }).catch((response: any) => {
         reject(`Could not load file '${jsonFile}': ${JSON.stringify(response)}`);
       });

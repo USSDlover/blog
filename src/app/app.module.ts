@@ -3,7 +3,6 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
 import {CoreModule} from '@core/core.module';
 
@@ -14,8 +13,7 @@ import {CoreModule} from '@core/core.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule.forRoot(),
-    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
+    CoreModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

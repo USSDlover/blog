@@ -1,11 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
-@import "font-styles";
-@import "images";
-@import "general";
+@import "./assets/styles/font-styles";
+@import "./assets/styles/images";
+@import "./assets/styles/general";
 
 @font-face {
   font-family: 'Dirooz';
-  src: url('../fonts/dirooz.woff');
+  src: url('./assets/fonts/dirooz.woff');
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body, * {
