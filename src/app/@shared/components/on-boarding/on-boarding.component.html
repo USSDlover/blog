@@ -1,0 +1,13 @@
+<div class="wrapper">
+  <div #slidesContainer class="slides">
+    <ng-container *ngFor="let slide of slides; index as i">
+      <div class="slide-wrapper">
+        <img class="slide" [id]="slide.id" [src]="slide.image" [alt]="'Slide' + i">
+        <bdo dir="rtl">{{slide.desc}}</bdo>
+      </div>
+    </ng-container>
+  </div>
+  <button class="done" (click)="onDone()">
+    {{doneTitle}}
+  </button>
+</div>

@@ -1,5 +1,5 @@
 import {AfterContentInit, Component, OnDestroy} from '@angular/core';
-import {LoaderService} from '@core/services';
+import {LoaderService, OnBoardingService} from '@core/services';
 import {Subscription} from 'rxjs';
 
 @Component({
@@ -7,13 +7,21 @@ import {Subscription} from 'rxjs';
   template: `
     <router-outlet></router-outlet>
     <app-loader *ngIf="loading"></app-loader>
+    <app-on-boarding
+      *ngIf="displayOnBoarding"
+      (boardingIsDone)="displayOnBoarding = false">
+    </app-on-boarding>
   `
 })
 export class AppComponent implements AfterContentInit, OnDestroy {
   private loaderSub: Subscription;
   loading: boolean;
+  displayOnBoarding: boolean;
 
-  constructor(private loader: LoaderService) {
+  constructor(
+    private loader: LoaderService,
+    private onBoarding: OnBoardingService
+  ) {
   }
 
   private static removePreLoader(): void {
@@ -26,6 +34,7 @@ export class AppComponent implements AfterContentInit, OnDestroy {
 
   ngAfterContentInit(): void {
     AppComponent.removePreLoader();
+    this.shouldDisplayOnBoarding();
     if (!this.loaderSub) {
       this.subscribeToLoaderChange();
     }
@@ -35,6 +44,10 @@ export class AppComponent implements AfterContentInit, OnDestroy {
     this.loaderSub = this.loader
       .getLoading()
       .subscribe(state => this.loading = state);
+  }
+
+  private shouldDisplayOnBoarding(): void {
+    this.displayOnBoarding = this.onBoarding.getOnBoardingState();
   }
 
   ngOnDestroy(): void {

@@ -4,3 +4,4 @@ export * from './team/team.component';
 export * from './team/components/member/member.component';
 export * from './top-header/top-header.component';
 export * from './in-app-loader/in-app-loader.component';
+export * from './on-boarding/on-boarding.component';
