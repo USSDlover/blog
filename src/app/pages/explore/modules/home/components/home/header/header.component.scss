@@ -1,7 +1,8 @@
 .home-header {
   //animation: slide-in 250ms ease-in;
 
-  height: 381px;
+  height: fit-content;
+  min-height: 381px;
   background-image: url("/assets/images/home/header-background.png");
   background-repeat: no-repeat;
   //background-color: #EB1E2F;
@@ -10,13 +11,28 @@
   background-position: -250px -286px;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
+  position: relative;
 
   padding: 20px;
 }
 
+.logo {
+  width: 34px;
+  height: 40px;
+
+  position: absolute;
+
+  right: 2rem;
+  top: 1.5rem;
+
+  img {
+    width: 100%;
+  }
+}
+
 .header-title {
   width: 100%;
-  margin-top: 75px;
+  margin-top: 17%;
   margin-bottom: 20px;
   text-align: center;
 }
